@@ -13,15 +13,11 @@
   </div>
 </template>
 
-<script lang= "ts">
-export default {
-  name: "HeaderWelcome",
-  data(){
-    return{
-      user: 'admin'
-    }
-  }
-};
+<script setup lang= "ts">
+import { ref } from "vue";
+
+const user = ref<string>("admin");
+
 </script>
 
 <style scoped>

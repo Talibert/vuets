@@ -4,18 +4,14 @@
   </button>
 </template>
 
-<script lang="ts">
-// Botão utilizado no header do projeto
-export default {
-  name: "HeaderButton",
-  props: {
-    // Título do botão
-    label: {
-      type: String,
-      default: "Clique aqui",
-    },
+<script setup lang="ts">
+
+const props = defineProps({
+  label: {
+    type: String,
+    default: "Clique aqui",
   },
-};
+});
 </script>
 
 <style scoped>

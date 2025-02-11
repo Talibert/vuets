@@ -8,22 +8,12 @@
 
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import HeroBody from './HeroBody.vue';
+import { ref } from 'vue';
 
-export default {
-  name: "HeroComponent",
-  components: {
-    HeroBody
-  },
-
-  data(){
-    return {
-      titleClass: "title",
-      isItalic: true
-    }
-  }
-};
+const titleClass = ref("title");
+const isItalic = ref(true);
 
 </script>
 

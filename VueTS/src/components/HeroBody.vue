@@ -9,41 +9,35 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+import { ref } from 'vue';
 
-export default {
-  name: "HeroBody",
+// Definindo a lista de itens
+const itens = ref([
+  {
+    id: 1,
+    name: "Image 1",
+    url: new URL('@/assets/images/image1.png', import.meta.url).href,
+  },
+  {
+    id: 2,
+    name: "Image 2",
+    url: new URL('@/assets/images/image2.png', import.meta.url).href,
+  },
+  {
+    id: 3,
+    name: "Image 3",
+    url: new URL('@/assets/images/image3.png', import.meta.url).href,
+  },
+  {
+    id: 4,
+    name: "Image 4",
+    url: new URL('@/assets/images/image4.png', import.meta.url).href,
+  },
+]);
 
-  data() {
-    return {
-      itens: [
-        {
-          id: 1,
-          name: "Image 1",
-          url: new URL('@/assets/images/image1.png', import.meta.url).href
-        },
-        {
-          id: 2,
-          name: "Image 2",
-          url: new URL('@/assets/images/image2.png', import.meta.url).href
-        },
-        {
-          id: 3,
-          name: "Image 3",
-          url: new URL('@/assets/images/image3.png', import.meta.url).href
-        },
-        {
-          id: 4,
-          name: "Image 4",
-          url: new URL('@/assets/images/image4.png', import.meta.url).href
-        }
-      ],
-
-      vitrineClass: "vitrine",
-    };
-  }
-};
-
+// Definindo a classe da vitrine
+const vitrineClass = ref("vitrine");
 </script>
 
 <style scoped>
