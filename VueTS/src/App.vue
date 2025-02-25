@@ -2,18 +2,21 @@
   <div id="app">
     <HeaderComponent />
     <HeroComponent />
+    <FormUser/>
   </div>
 </template>
 
 <script lang="ts">
 import HeaderComponent from './components/HeaderComponent.vue';
 import HeroComponent from './components/HeroComponent.vue';
+import FormUser from './components/FormUser.vue';
 
 export default {
   name: 'App',
   components: {
     HeaderComponent,
-    HeroComponent
+    HeroComponent,
+    FormUser
   }
 }
 </script>
