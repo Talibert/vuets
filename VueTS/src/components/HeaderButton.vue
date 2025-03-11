@@ -6,12 +6,13 @@
 
 <script setup lang="ts">
 
-const props = defineProps({
+defineProps({
   label: {
     type: String,
     default: "Clique aqui",
   },
-});
+})
+
 </script>
 
 <style scoped>

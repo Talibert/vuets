@@ -3,15 +3,18 @@
     <div class="header-title">
       <HeaderWelcome/>
     </div>
+    <div class="header-title">
+      <HeaderAdvice/>
+    </div>
     <div class="header-buttons">
-      <HeaderButton label="Botão 1" 
+      <HeaderButton label="Botão 1"
       v-show="showButton1" />
-      <HeaderButton label="Botão 2" 
+      <HeaderButton label="Botão 2"
       v-if="showButton2" />
       <HeaderButton label="Botão 3" />
       <HeaderButton label="Botão 4" />
     </div>
-    
+
   </header>
 </template>
 
@@ -21,11 +24,11 @@ import { ref } from "vue";
 // Importação dos componentes filhos
 import HeaderButton from "./HeaderButton.vue";
 import HeaderWelcome from "./HeaderWelcome.vue";
+import HeaderAdvice from '@/components/HeaderAdvice.vue'
 
 // Definição dos estados reativos
 const showButton1 = ref(false);
 const showButton2 = ref(false);
-const nome = ref("vueTest");
 
 </script>
 
