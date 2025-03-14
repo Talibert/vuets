@@ -2,7 +2,7 @@
   <div v-if="apiResponse.loading"> Carregando</div>
   <div class="header-advice" v-else>
     <p v-if="!apiResponse.error">
-      {{ apiResponse.response }}
+      {{ advice }}
     </p>
     <p v-else>
       {{ apiResponse.error }}
@@ -13,8 +13,22 @@
 <script setup lang="ts">
 import { useFetch } from '@/Composables/useFetch.ts'
 import type { Advice } from '@/types/Advice.ts'
+import { ref, watch } from 'vue'
 
 const apiResponse = useFetch<Advice>('https://api.adviceslip.com/advice');
+
+const advice = ref<string | null>(null);
+
+watch(
+  () => apiResponse.value.response,
+  (newResponse) => {
+    if (newResponse) {
+      advice.value = newResponse.slip.advice;
+    } else {
+      advice.value = null;
+    }
+  }
+);
 
 </script>
 
