@@ -1,25 +1,20 @@
 <template>
-  <div class="header-advice">
-    <p>
-      {{ advice?.slip.advice }}
+  <div v-if="apiResponse.loading"> Carregando</div>
+  <div class="header-advice" v-else>
+    <p v-if="!apiResponse.error">
+      {{ apiResponse.response }}
+    </p>
+    <p v-else>
+      {{ apiResponse.error }}
     </p>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import type { Advice } from '@/types/Advice.ts'
+import { useFetch } from '@/Composables/useFetch.ts'
 
-const advice = ref(<Advice | undefined>undefined)
+const apiResponse = useFetch('https://api.adviceslip.com/advice');
 
-onMounted(async () => {
-  advice.value = await getAdvice()
-})
-
-const getAdvice = async (): Promise<Advice> => {
-  const req = await fetch('https://api.adviceslip.com/advice')
-  return await req.json()
-}
 </script>
 
 <style scoped>
