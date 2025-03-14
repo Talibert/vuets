@@ -12,8 +12,9 @@
 
 <script setup lang="ts">
 import { useFetch } from '@/Composables/useFetch.ts'
+import type { Advice } from '@/types/Advice.ts'
 
-const apiResponse = useFetch('https://api.adviceslip.com/advice');
+const apiResponse = useFetch<Advice>('https://api.adviceslip.com/advice');
 
 </script>
 

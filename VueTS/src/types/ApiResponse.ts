@@ -1,5 +1,5 @@
-export interface ApiResponse {
-  response: string | null;
+export interface ApiResponse<T> {
+  response: T | null;
   error: string| null;
   loading: boolean;
 }

@@ -1,9 +1,9 @@
 import type { ApiResponse } from '@/types/ApiResponse.ts'
 import { onMounted, type Ref, ref } from 'vue'
 
-export function useFetch(url: string): Ref<ApiResponse>{
-  const apiResponse = ref<ApiResponse>({
-    response: null, // ou um valor padrão
+export function useFetch<T>(url: string): Ref<ApiResponse<T>>{
+  const apiResponse: Ref<ApiResponse<T>> = ref({
+    response: null, // ou um valor padrão para evitar problemas de tipagem
     error: null,
     loading: true,
   });
@@ -16,7 +16,7 @@ export function useFetch(url: string): Ref<ApiResponse>{
     try{
       const req = await fetch(url);
       const json = await req.json()
-      apiResponse.value.response = json.slip.advice
+      apiResponse.value.response = json as T;
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : "Erro desconhecido";
       apiResponse.value.error = `Não foi possível acessar a API. Erro: ${errorMessage}`;
