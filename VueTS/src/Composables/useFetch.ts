@@ -2,6 +2,11 @@ import type { ApiResponse } from '@/types/ApiResponse.ts'
 import { onMounted, type Ref, ref } from 'vue'
 
 export function useFetch<T>(url: string): Ref<ApiResponse<T>>{
+
+  /**
+   * Essa variável é a resposta da API
+   * Obs: não precisamos dar um segundo tipo aqui (null ou undefined) pois já estamos iniciando o objeto
+   */
   const apiResponse: Ref<ApiResponse<T>> = ref({
     response: null, // ou um valor padrão para evitar problemas de tipagem
     error: null,
@@ -12,6 +17,9 @@ export function useFetch<T>(url: string): Ref<ApiResponse<T>>{
     await getAdvice()
   })
 
+  /**
+   * Vamos popular o objeto de acordo com o retorno da API
+   */
   const getAdvice = async (): Promise<void> => {
     try{
       const req = await fetch(url);

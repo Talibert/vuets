@@ -15,10 +15,12 @@ import { useFetch } from '@/Composables/useFetch.ts'
 import type { Advice } from '@/types/Advice.ts'
 import { ref, watch } from 'vue'
 
+// Chamada imediatamente quando o componente é montado
 const apiResponse = useFetch<Advice>('https://api.adviceslip.com/advice');
 
 const advice = ref<string | null>(null);
 
+// Vai observar a mudança na resposta e atualizar o advice
 watch(
   () => apiResponse.value.response,
   (newResponse) => {
