@@ -24,7 +24,7 @@ const isItalic = ref(true);
   flex-direction: column;
   align-items: center;
   height: 400px;
-  background-color: #1a9ea7;
+  background-color: #ffffff;
 }
 
 .title{

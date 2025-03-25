@@ -7,48 +7,44 @@
       <HeaderAdvice/>
     </div>
     <div class="header-buttons">
-      <HeaderButton label="Botão 1"
-      v-show="showButton1" />
-      <HeaderButton label="Botão 2"
-      v-if="showButton2" />
-      <HeaderButton label="Botão 3" />
-      <HeaderButton label="Botão 4" />
+      <HeaderButton v-for="item in menus" :key="item.id" :item="item"/>
     </div>
 
   </header>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+
+const menus = [
+  { id: 1, nome: "Home", path: "/"},
+  { id: 2, nome: "About", path: "/about"},
+  { id: 2, nome: "Login", path: "/login"}
+]
 
 // Importação dos componentes filhos
 import HeaderButton from "./HeaderButton.vue";
 import HeaderWelcome from "./HeaderWelcome.vue";
 import HeaderAdvice from '@/components/HeaderAdvice.vue'
 
-// Definição dos estados reativos
-const showButton1 = ref(false);
-const showButton2 = ref(false);
-
 </script>
 
 <style scoped>
-.header{
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #1aa72c;
+  background: linear-gradient(to bottom, #5ceabf, #ffffff);
   padding: 0 20px;
+  height: 140px;
 }
 
 .header-title{
   margin-right: auto;
-  background-color: antiquewhite;
 }
 
 .header-buttons {
   display: flex;;
   padding: 15px;
-  gap: 30px;
+  gap: 20px;
 }
 </style>

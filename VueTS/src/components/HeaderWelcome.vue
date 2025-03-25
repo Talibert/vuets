@@ -22,8 +22,8 @@ const user = ref<string>("admin");
 
 <style scoped>
 .header-welcome {
-  background-color: #fcfcfc;
-  color: rgb(0, 0, 0);
+  background-color: #215342;
+  color: rgb(255, 255, 255);
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
