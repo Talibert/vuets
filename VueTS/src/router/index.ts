@@ -6,7 +6,7 @@ import HomeView from '@/views/HomeView.vue'
  * A técnica de Lazy Load vai ajudar a carregar a view e seus componentes apenas quando ela de fato for chamada
  * @param view
  */
-const lazyLoad = (view) => import(`@/views/${view}.vue`)
+const lazyLoad = (view: string) => import(`@/views/${view}.vue`)
 
 /**
  * Criando um array com as rotas do projeto
