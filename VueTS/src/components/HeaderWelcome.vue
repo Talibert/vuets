@@ -1,15 +1,15 @@
 <template>
   <div class="header-welcome"
     v-if="user === 'admin'">
-    Bem vindo, backoffice!
+    Welcome, admin!
   </div>
   <div class="header-welcome"
     v-else-if="user === 'professor'">
-    Bem vindo, professor!
+    Welcome, mister!
   </div>
   <div class="header-welcome"
     v-else>
-    Bem vindo, aluno!
+    Welcome, student!
   </div>
 </template>
 

@@ -3,9 +3,6 @@
     <div class="header-title">
       <HeaderWelcome/>
     </div>
-    <div class="header-title">
-      <HeaderAdvice/>
-    </div>
     <div class="header-buttons">
       <HeaderButton v-for="item in menus" :key="item.id" :item="item"/>
     </div>
@@ -24,7 +21,6 @@ const menus = [
 // Importação dos componentes filhos
 import HeaderButton from "./HeaderButton.vue";
 import HeaderWelcome from "./HeaderWelcome.vue";
-import HeaderAdvice from '@/components/HeaderAdvice.vue'
 
 </script>
 
@@ -33,9 +29,9 @@ import HeaderAdvice from '@/components/HeaderAdvice.vue'
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to bottom, #5ceabf, #ffffff);
+  background: linear-gradient(to bottom, #2b6b56, #ffffff);
   padding: 0 20px;
-  height: 140px;
+  height: 100px;
 }
 
 .header-title{

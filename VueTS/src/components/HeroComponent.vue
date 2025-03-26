@@ -1,19 +1,13 @@
 <template>
   <div class="hero">
-    <div :class="[titleClass, { 'title-bold': isItalic }]">
-      Título teste Hero
-    </div>
-    <HeroBody/>
+    <AdviceComponent/>
+    <CarrouselHome/>
   </div>
-
 </template>
 
 <script setup lang="ts">
-import HeroBody from './HeroBody.vue';
-import { ref } from 'vue';
-
-const titleClass = ref("title");
-const isItalic = ref(true);
+import CarrouselHome from './CarrouselHome.vue';
+import AdviceComponent from '@/components/AdviceComponent.vue'
 
 </script>
 
@@ -21,22 +15,17 @@ const isItalic = ref(true);
 .hero{
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  height: 400px;
-  background-color: #ffffff;
+  height: 800px;
+  //background-color: #8f3333;
 }
 
-.title{
-  padding-bottom: 20px;
-  font-size: 40px;
-  color: black;
-}
-
-.title-bold{
-  padding-bottom: 20px;
-  font-size: 40px;
-  font-style: italic;
-  color: black;
+/* Os filhos do .hero ocuparão 50% cada */
+.hero > * {
+  flex: 1;
+  max-width: 50%;
+  height: 100%;
+  box-sizing: border-box; /* Para respeitar padding/border */
 }
 </style>
